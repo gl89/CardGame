@@ -1,5 +1,6 @@
 public class Card {
    
+   
    public final static int SPADES = 0;   
    public final static int HEARTS = 1;
    public final static int DIAMONDS = 2;
@@ -30,7 +31,20 @@ public class Card {
    }
    
    public int getValue() {
+      
+      
       return value;
+   }
+   
+   public int scoreValue(){
+     switch ( suit ) {
+           case JOKER:   return  0;
+           case SPADES:   return 4*value;
+           case HEARTS:   return 3*value;
+           case DIAMONDS: return 2*value;
+           case CLUBS:    return value;
+           default:       return 0;
+        }
    }
    
    public String getSuitAsString() {
