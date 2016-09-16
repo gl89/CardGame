@@ -28,7 +28,19 @@ public class Game{
    System.out.println();
    }
    
+   /*
    public void setPlayers(int numPlayers){
+      players = numPlayers;
+   }
+   */   
+   
+   public void setPlayers(){
+      System.out.print("Please choose the number of players(2-4): ");
+      int numPlayers = scanner.nextInt();
+      while( numPlayers < 2 || numPlayers > 4){
+         System.out.print("The number must be between 2 & 4 inclusive: ");
+         numPlayers = scanner.nextInt();
+      }
       players = numPlayers;
    }
    
@@ -64,7 +76,7 @@ public class Game{
    
     public void round(){
       System.out.println("----------------------------------------------------------------------------------------------------");
-      System.out.println("ROUND "+roundNum+" ");
+      System.out.println("\n\nROUND "+roundNum+" ");
       //show();
       showPos();
       d.showCardsLeft();
@@ -110,7 +122,7 @@ public class Game{
       PP[winner].addScore();
       roundNum++;
       posSort(position);
-      System.out.println();
+      System.out.println("\n");
    }
    
    //Must have a score equal to 21 or greater AND 1st must win be 2 more than 2nd place
