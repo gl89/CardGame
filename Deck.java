@@ -11,14 +11,14 @@ public class Deck {
     private List<Card> deck = new ArrayList<Card>(); // An arraylist of 56 Cards, representing the deck.
     //private List<Card> graveyard = new ArrayList<Card>();
  
-    public int cardsUsed=0;
+    public int cardsLeft=56;
     
     public Deck() {
-       int cardCt = 0; // How many cards have been created so far.
+
        for ( int suit = 0; suit <= 3; suit++ ) {
           for ( int value = 1; value <= 13; value++ ) {
              deck.add(new Card(value,suit));
-             cardCt++;
+       
           }
        }
        deck.add(new Card());
@@ -30,24 +30,22 @@ public class Deck {
     public void shuffle() {
       Collections.shuffle(deck);
     }
-   
+    
     public Card drawCard() {
-        
+        cardsLeft--;
         return deck.remove(deck.size()-1);
     }
-   
     
-
-   /*
-   public static void main(String[] args){
-      Deck d = new Deck();
-      Scanner scan = new Scanner(System.in);
-      int answer;
-      do{
-         d.shuffle();
-         System.out.println(d.drawCard());
-         answer = scan.nextInt();
-      }while(answer == 1);
-   }
-   */
+    public Deck newDeck(){
+      System.out.println("NEW DECK ISSUED\n");
+      return new Deck();  
+    }
+    
+    public void showCardsLeft(){
+       System.out.println("Deck has "+cardsLeft+" cards remaining.");
+    }
+    public boolean isEmpty(){
+      if(cardsLeft==0){return true;}
+      return false;
+    }   
 }

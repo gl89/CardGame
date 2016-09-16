@@ -22,6 +22,7 @@ public class Player{
       return name;
    }
    
+   //I guess if this my own rule interpretation I don't like negative scores.
    public void penalty(){
       if(score>0){
          score--;
@@ -37,7 +38,7 @@ public class Player{
    }
    
    public String toString() {   
-     return getName() + " " + getScore();
+     return getName() + " " + getScore()+" points";
    }
 
 }

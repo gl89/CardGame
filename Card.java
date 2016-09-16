@@ -10,16 +10,15 @@ public class Card {
    public final  int JACK = 11;    
    public final  int QUEEN = 12;   
    public final  int KING = 13;
-   public final  int JOKER = -1;
+   public final  int PENALTY = -1;
    
    private final int suit; 
    private final int value;
    
    public Card(){
       value = -1;
-      suit = JOKER;
+      suit = PENALTY;
    }
-   
    
    public Card(int theValue, int theSuit) {
       value = theValue;
@@ -31,14 +30,12 @@ public class Card {
    }
    
    public int getValue() {
-      
-      
       return value;
    }
    
    public int scoreValue(){
-     switch ( suit ) {
-           case JOKER:   return  0;
+     switch (suit) {
+           case PENALTY:   return  0;
            case SPADES:   return 4*value;
            case HEARTS:   return 3*value;
            case DIAMONDS: return 2*value;
@@ -48,8 +45,8 @@ public class Card {
    }
    
    public String getSuitAsString() {
-        switch ( suit ) {
-           case JOKER:   return "JOKER";
+        switch (suit) {
+           case PENALTY:  return "PENALTY";
            case SPADES:   return "Spades";
            case HEARTS:   return "Hearts";
            case DIAMONDS: return "Diamonds";
@@ -59,8 +56,8 @@ public class Card {
     }
     
     public String getValueAsString() {
-        switch ( value ) {
-           case -1: return "-1";
+        switch (value) {
+           case -1:  return "-1";
            case 1:   return "Ace";
            case 2:   return "2";
            case 3:   return "3";
@@ -78,12 +75,7 @@ public class Card {
         }
     }
     
-    public String toString() {
-           // Return a String representation of this card, such as
-           // "10 of Hearts" or "Queen of Spades".
-        return getValueAsString() + " " + getSuitAsString();
+    public String toString(){
+        return getValueAsString() + " of " + getSuitAsString();
     }
-
-   
-  
   } // end class Card
