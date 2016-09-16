@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Game{
    
-   int roundNum = 1;
+   int roundNum=1;
    public int players;
    public boolean win=false;
    
@@ -32,16 +32,16 @@ public class Game{
       players = numPlayers;
    }
    
-   //somekind of sort
-   public void PositionSort(Player[] pos){
+   //Insertion sort to sort positions after scoring
+   public void posSort(Player[] pos){
         int i;
-        Player key;                // the item to be inserted  
+        Player key;// the item to be inserted  
         for (int j = 1; j < pos.length; j++){  
               key = pos[j];
               for( i = j - 1; (i >= 0) && (pos[i].getScore() < key.getScore()); i--){  
                     pos[i+1] = pos[i];
              }
-             pos[i+1] = key;    // Put the key in its proper location
+             pos[i+1] = key;// Put the key in its proper location
         }
    }
    
@@ -54,17 +54,7 @@ public class Game{
       }
    }
    
-   /*
-   public void show(){
-      System.out.print("Current score| ");
-      for(int pl = 0; pl < players; pl++){
-         System.out.print(PP[pl]+" | ");
-      }
-      System.out.println();
-   }
-   */
-   
-   public void show_pos(){
+   public void showPos(){
       System.out.print("Current positions| ");
       for(int pl = 0; pl < players; pl++){
          System.out.print(position[pl]+" | ");
@@ -76,7 +66,7 @@ public class Game{
       System.out.println("----------------------------------------------------------------------------------------------------");
       System.out.println("ROUND "+roundNum+" ");
       //show();
-      show_pos();
+      showPos();
       d.showCardsLeft();
       
       System.out.println();
@@ -98,7 +88,7 @@ public class Game{
             }
          }else{
          
-            System.out.print(PP[i].getName()+" press any key to draw a card.");
+            System.out.print(PP[i].getName()+" press [ENTER] to draw a card.");
             scanner.nextLine();
             PP[i].setCard(d.drawCard());
             System.out.println(PP[i].getName()+" drew "+PP[i].getCard());//add just penalty
@@ -117,9 +107,9 @@ public class Game{
          }
       } 
       System.out.println(PP[winner].getName() + " wins ROUND "+roundNum+"!");   
-      PP[winner].win();
+      PP[winner].addScore();
       roundNum++;
-      PositionSort(position);
+      posSort(position);
       System.out.println();
    }
    
@@ -131,18 +121,10 @@ public class Game{
      }
      return win;
    }
-
-    public static void main(String[] args){
-    
-    Game d = new Game();
-    d.setPlayers(3);
-    d.partic();
-    d.rules();
-    while(!d.WINC()){
-       d.round(); 
-    }
-    System.out.println("----------------------------------------------------------------------------------------------------");
-    d.show_pos();
-    System.out.println(d.position[0].getName()+" has won the game!");
+   
+   public void gameOver(){
+       System.out.println("----------------------------------------------------------------------------------------------------");
+       showPos();
+       System.out.println(position[0].getName()+" has won the game!");
    }
 }

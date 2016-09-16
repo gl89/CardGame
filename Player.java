@@ -1,9 +1,8 @@
 public class Player{
    
    public String name;
-   public int score;//inital starting score;
+   public int score;
    public Card card_drew;
-   
    
    public Player(String fname){
       name = fname; 
@@ -14,6 +13,7 @@ public class Player{
    public Card getCard(){
       return card_drew;
    }
+   
    public int getScore(){
       return score;
    }
@@ -22,14 +22,14 @@ public class Player{
       return name;
    }
    
-   //I guess if this my own rule interpretation I don't like negative scores.
+   
    public void penalty(){
       if(score>0){
-         score--;
+         score--; //I guess if this my own rule interpretation I don't like negative scores.
       }
    }
    
-   public void win(){
+   public void addScore(){
       score+=2;
    }
    
@@ -38,7 +38,7 @@ public class Player{
    }
    
    public String toString() {   
-     return getName() + " " + getScore()+" points";
+      return getName() + " " + getScore()+" points";
    }
 
 }
