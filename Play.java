@@ -1,37 +1,46 @@
+/*
+Gabriel Loterena
+9/17/2016
+Play Class
+*/
+
 import java.util.*;
 
 public class Play{
    
    static int gamesPlayed = 0;
-   Game ng = new Game();
-   Scanner scan = new Scanner(System.in);   
    int players;
-   //This should do evetything;
+   
+   Game newGame = new Game();
+   Scanner scan = new Scanner(System.in);   
+   
+   //This method plays the game
    public void playGame() {
-       System.out.println("\n\nWelcome let's play a simple game!");
-       ng.setPlayers();
-       ng.partic();
-       if(gamesPlayed==0){
-         ng.rules();
+       System.out.print("\n\n\nWelcome let's play a simple game!\n");
+       newGame.setPlayers();
+       newGame.participants();
+       System.out.println("Games played today: " + gamesPlayed + "\n");
+       if(gamesPlayed==0){//We'll only show the rules the first time
+         newGame.rules();
        }
-       while(!ng.WINC()){
-         ng.round();
+       while(!newGame.winCondition()){
+         newGame.round();
        } 
-       ng.gameOver();
+       newGame.gameOver();
        playAgain();
     }
     
+    //Ask if players want to play again
     public void playAgain(){
-       System.out.println();
-       System.out.println("Would you like to play again?: ");
-       System.out.print("1: To play again | 2: To end session: ");
+       System.out.println("\nWould you like to play again?: ");
+       System.out.println("1: To play again | 2: To end session: ");
        int input = scan.nextInt();
        while( input != 1 && input!= 2){
          System.out.print("Please type 1 to play again or 2 to end session: ");
          input = scan.nextInt();
        }
        if(input==1){
-         ng = new Game();
+         newGame = new Game();
          gamesPlayed++;
          playGame();
        }else{
@@ -40,7 +49,6 @@ public class Play{
        }
     }
     
- 
    public static void main(String[] args){
       Play play = new Play();
       play.playGame();

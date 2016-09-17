@@ -1,29 +1,42 @@
+/*
+Gabriel Loterena
+9/17/2016
+Card class 
+*/
+
 public class Card {
    
+   //Values for the suites
    public final static int SPADES = 0;   
    public final static int HEARTS = 1;
    public final static int DIAMONDS = 2;
    public final static int CLUBS = 3;
    
-   public final  int ACE = 1;      
-   public final  int JACK = 11;    
-   public final  int QUEEN = 12;   
-   public final  int KING = 13;
-   public final  int PENALTY = -1;
+   //Values for the cards 
+   public final int ACE = 1;      
+   public final int JACK = 11;    
+   public final int QUEEN = 12;   
+   public final int KING = 13;
+   public final int PENALTY = -1;
    
+   //Class fields
    private final int suit; 
    private final int value;
    
+   //creates the PENALTY cards
+   //Value can really be anything 
    public Card(){
       value = -1;
       suit = PENALTY;
    }
    
+   //Card constructor for non PENALTY cards
    public Card(int theValue, int theSuit) {
       value = theValue;
       suit = theSuit;
    }
-
+   
+   //Access methods
    public int getSuit() {
       return suit;
    }
@@ -32,9 +45,13 @@ public class Card {
       return value;
    }
    
+   /*There are 13 different cards aside from 
+   the PENALTY cards. Easy way to handle scoring
+   is just multiply value by their rank. 
+   i.e Spade = 4 > Heart = 3 > Diamond = 2 > Club = 1 */
    public int scoreValue(){
      switch (suit) {
-           case PENALTY:   return  0;
+           case PENALTY:  return  0;
            case SPADES:   return 4*value;
            case HEARTS:   return 3*value;
            case DIAMONDS: return 2*value;
@@ -43,6 +60,7 @@ public class Card {
         }
    }
    
+   //String methods maybe 
    public String getSuitAsString() {
         switch (suit) {
            case PENALTY:  return "PENALTY";
@@ -77,4 +95,4 @@ public class Card {
     public String toString(){
         return getValueAsString() + " of " + getSuitAsString();
     }
-  } // end class Card
+  } 

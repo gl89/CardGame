@@ -1,13 +1,21 @@
+/*
+Gabriel Loterena
+9/17/2016
+Card class 
+52 standard value playing cards
+4 special penalty cards
+*/
+
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class Deck {
-
-    private List<Card> deck = new ArrayList<Card>(); // An arraylist of 56 Cards, representing the deck.
-    //private List<Card> graveyard = new ArrayList<Card>(); //Hold the cards that were drawn. 
- 
+   
+    //Clsss fields
     public int cardsLeft=56;
+    public final List<Card> deck = new ArrayList<Card>(); // An arraylist of 56 Cards, representing the deck.
     
     //Creates the first 52 cards and adds the 4 penalty cards.
     public Deck() {
@@ -41,7 +49,7 @@ public class Deck {
     
     //Simply shows the amount of cards left. 
     public void showCardsLeft(){
-       System.out.println("Deck has "+cardsLeft+" cards remaining.");
+       System.out.println("Deck has "+cardsLeft+" cards remaining.\n");
     }
     
     //returns true if there are no more cards left
