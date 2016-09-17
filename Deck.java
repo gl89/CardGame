@@ -1,17 +1,14 @@
 /*
 Gabriel Loterena
 9/17/2016
-Card class 
-52 standard value playing cards
-4 special penalty cards
+Deck Class: The construction of a deck of cards and methods on how to use the deck
 */
-
 
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Deck {
+public class Deck{
    
     //Clsss fields
     public int cardsLeft=56;
@@ -49,7 +46,7 @@ public class Deck {
     
     //Simply shows the amount of cards left. 
     public void showCardsLeft(){
-       System.out.println("Deck has "+cardsLeft+" cards remaining.\n");
+       System.out.println("Deck has " + cardsLeft + " cards remaining.\n");
     }
     
     //returns true if there are no more cards left

@@ -1,10 +1,10 @@
 /*
 Gabriel Loterena
 9/17/2016
-Card class 
+Card class: The construction of one card and methods accessing information  
 */
 
-public class Card {
+public class Card{
    
    //Values for the suites
    public final static int SPADES = 0;   

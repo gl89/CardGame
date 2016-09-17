@@ -1,7 +1,7 @@
 /*
 Gabriel Loterena
 9/17/2016
-Play Class
+Play Class: How to play the game
 */
 
 import java.util.*;

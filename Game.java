@@ -1,7 +1,7 @@
 /*
 Gabriel Loterena
 9/17/2016
-Game Class 
+Game Class: The construction of one game and the elements that follow the rules of the game
 */
 
 import java.util.Scanner;
@@ -65,7 +65,7 @@ public class Game{
       playerArr = new Player[players]; 
       position = new Player[players]; 
       for(int pl = 0; pl < players; pl++){ 
-         playerArr[pl] = new Player("Player"+(pl+1));//Player names Player#
+         playerArr[pl] = new Player("Player"+(pl + 1));//Player names Player#
          position[pl] = playerArr[pl]; 
       }
    }
@@ -74,7 +74,7 @@ public class Game{
    public void showPos(){
       System.out.print("Current positions| ");
       for(int pl = 0; pl < players; pl++){
-         System.out.print(position[pl]+" | ");
+         System.out.print(position[pl] + " | ");
       }
       System.out.println();
    }
@@ -97,26 +97,26 @@ public class Game{
          if(d.isEmpty()){//issure a new deck if the deck is empty and shuffle it.
             d = d.newDeck();
             d.shuffle();
-            System.out.print(playerArr[i].getName()+" press any key to draw a card.");
+            System.out.print(playerArr[i].getName() + " press any key to draw a card.");
             scan.nextLine();
             playerArr[i].setCard(d.drawCard());
             //conditions based on suite of the card drawn
             if(playerArr[i].getCard().getSuitAsString()=="PENALTY"){
                playerArr[i].penalty();
-               System.out.println(playerArr[i].getName()+" drew a PENALTY! *SAD TRUMBONE*");
+               System.out.println(playerArr[i].getName() + " drew a PENALTY! *SAD TRUMBONE*");
             }else{
-               System.out.println(playerArr[i].getName()+" drew "+playerArr[i].getCard());
+               System.out.println(playerArr[i].getName() + " drew " + playerArr[i].getCard());
             }
             
          }else{ //same as above with a non-empty deck
-            System.out.print(playerArr[i].getName()+" press [ENTER] to draw a card.");
+            System.out.print(playerArr[i].getName() + " press [ENTER] to draw a card.");
             scan.nextLine();
             playerArr[i].setCard(d.drawCard());
             if(playerArr[i].getCard().getSuitAsString()=="PENALTY"){
                playerArr[i].penalty();
-               System.out.println(playerArr[i].getName()+" drew a PENALTY! *SAD TRUMBONE*");
+               System.out.println(playerArr[i].getName() + " drew a PENALTY! *SAD TRUMBONE*");
             }else{
-               System.out.println(playerArr[i].getName()+" drew "+playerArr[i].getCard());
+               System.out.println(playerArr[i].getName() + " drew "+playerArr[i].getCard());
             }
          }
          
@@ -124,13 +124,13 @@ public class Game{
       } 
       //Figures out who won the round
       for(int i=0;i < players; i++){
-         if(playerArr[i].getCard().scoreValue()>high){
+         if(playerArr[i].getCard().scoreValue() > high){
             winner = i;
             high = playerArr[i].getCard().scoreValue();
          }
       } 
       //Declare winner, update score,increment round and reposition them
-      System.out.println(playerArr[winner].getName() + " wins ROUND "+roundNum+"!\n\n");   
+      System.out.println(playerArr[winner].getName() + " wins ROUND " + roundNum+"!\n\n");   
       playerArr[winner].addScore();
       roundNum++;
       posSort(position);
@@ -140,7 +140,7 @@ public class Game{
    Must have a score equal to 21 or greater AND 1st must win be 2 more than 2nd place
    Change this to only update at end of round */
    public boolean winCondition(){
-     if(position[0].getScore() >= 21 && (position[0].getScore()-position[1].getScore()) > 1){
+     if(position[0].getScore() >= 21 && (position[0].getScore() - position[1].getScore()) > 1){
        gameOver = true;
      }
      return gameOver;
@@ -150,6 +150,6 @@ public class Game{
    public void gameOver(){
        System.out.println("----------------------------------------------------------------------------------------------------");
        showPos();
-       System.out.println(position[0].getName()+" has won the game!");
+       System.out.println(position[0].getName() + " has won the game!");
    }
 }

@@ -1,9 +1,8 @@
 /*
 Gabriel Loterena
 9/17/2016
-Player class
+Player class: The construction of one player
 */
-
 
 public class Player{
    
@@ -18,7 +17,6 @@ public class Player{
       score = 0; 
       cardDrawn=null;
    }
-   
    
    //Sets the card the player draws
    public void setCard(Card c){
@@ -41,7 +39,7 @@ public class Player{
    //Removes 1 point if player draws a penalty
    public void penalty(){
       if(score>0){
-         score--; //I guess if this my own rule interpretation I don't like negative scores.
+         score--; 
       }
    }
    
@@ -51,7 +49,6 @@ public class Player{
    }
    
    public String toString() {   
-      return getName() + " " + getScore()+" points";
+      return getName() + " " + getScore() + " points";
    }
-
 }
