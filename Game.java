@@ -1,6 +1,5 @@
 /*
 Gabriel Loterena
-9/17/2016
 Game Class: The construction of one game and the elements that follow the rules of the game
 */
 
